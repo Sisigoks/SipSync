@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SipSync</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <form>
+      Choose Your Taste:
+      <select id="vehicle">
+            <option value="Sweet">🍬 Sweet</option>
+            <option value="Earthy">🌿 Earthy</option>
+            <option value="Citrusy">🍋 Citrusy</option>
+            <option value="Spicy">🫚 Spicy</option>
+            <option value="Floral">🌸 Floral</option>
+      </select>
+    </form>
+    <form>
+        What's Your Mood:
+        <input type="text" placeholder="Any Feelings ...">
+    </form>
+    <form autocomplete="off" action="/action_page.php" id="symptoms_con">
+        Watcha Feelin:
+        <div class="autocomplete">
+          <input id="myInput" type="text" name="Symptoms" placeholder="Any Feelings ...">
+        </div>
+        <input type="submit">
+    </form>
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
