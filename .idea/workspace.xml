@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3607c39e-02c2-4cf5-b95a-01639bb26e92" name="Changes" comment="initial development of the user UI and processing">
+    <list default="true" id="3607c39e-02c2-4cf5-b95a-01639bb26e92" name="Changes" comment="finished the NLP processing and developed better UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SipSyncer.py" beforeDir="false" afterPath="$PROJECT_DIR$/SipSyncer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -136,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742663189024</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finished the NLP processing and developed better UI">
+      <option name="closed" value="true" />
+      <created>1742716041746</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742716041746</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,6 +172,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial development of the user UI and processing" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial development of the user UI and processing" />
+    <MESSAGE value="finished the NLP processing and developed better UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished the NLP processing and developed better UI" />
   </component>
 </project>

@@ -13,7 +13,7 @@ $(document).ready(function () {
             alert("Please fill in all fields.");
             return;
         }
-
+        $('#loading').show()
         $("#result").html(""); // Clear previous results
 
         // Prepare data for the POST request
@@ -30,19 +30,38 @@ $(document).ready(function () {
             contentType: "application/json",
             data: JSON.stringify(formData),
             success: function (response) {
+                $('#loading').hide();
                 if (response.error) {
                     $("#result").html('<p style="color:red;">' + response.error + "</p>");
                     return;
                 }
                 const recipeText = response.Recipe;
                 $("#result").html(`<pre id="bio-data">${recipeText}</pre>`);
+                typewriterEffect('#bio-data');
             },
             error: function () {
+                $('#loading').hide();
                 $("#result").html('<p style="color:red;">An error occurred. Please try again.</p>');
             },
         });
     });
 });
+
+function typewriterEffect(element) {
+    var text = $(element).text();
+    var index = 0;
+    $(element).text(""); // Clear the existing text
+
+    function type() {
+        if (index < text.length) {
+            $(element).append(text.charAt(index));
+            index++;
+            setTimeout(type, 5); // Adjust speed here (in ms)
+        }
+    }
+
+    type(); // Start typing effect
+}
 
 // Autocomplete function
 function autocomplete(inp, arr) {
@@ -127,3 +146,18 @@ var symptoms = [
 ];
 
 autocomplete(document.getElementById("sym"), symptoms);
+
+const loading = document.getElementById('loading');
+const result = document.getElementById('result');
+
+// Function to show the loading element inside the result
+function showLoading() {
+    result.appendChild(loading); // Move loading inside result
+    loading.style.display = 'block'; // Make it visible
+}
+
+// Function to hide the loading element and move it back
+function hideLoading() {
+    loading.style.display = 'none'; // Hide it
+    document.body.appendChild(loading); // Move it back to the body (or original position)
+}

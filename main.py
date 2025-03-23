@@ -17,7 +17,8 @@ def recipe_gen():
     feel = data.get("feel_val")
     taste = data.get("taste_val")
     result = sipsyncer(taste, mood, feel)
-    return jsonify({"Recipe": result})
+    print(result)
+    return jsonify(result)
 
 if __name__ == "__main__":
     app.run(debug=True)
