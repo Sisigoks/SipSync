@@ -59,7 +59,8 @@ def sipsyncer(taste, mood, feel):
     chain = prompt_template | llm | StrOutputParser()
 
     full_bio_data = chain.invoke({"question": prompt}).strip()
-
-    return full_bio_data[4:]
-
-print(sipsyncer('spicy','energetic','Tired'))
+    tea_start = full_bio_data.find("**Tea Name:**")
+    if tea_start == -1:
+        return full_bio_data
+    else:
+        return full_bio_data[tea_start:]
