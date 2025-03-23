@@ -1,0 +1,5 @@
+flask
+langchain
+langchain_huggingface
+random
+re
