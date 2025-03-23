@@ -15,6 +15,7 @@ $(document).ready(function () {
         }
         $('#loading').show()
         $("#result").html(""); // Clear previous results
+        $("#youtube").html("");
 
         // Prepare data for the POST request
         const formData = {
@@ -38,14 +39,26 @@ $(document).ready(function () {
                 const recipeText = response.Recipe;
                 $("#result").html(`<pre id="bio-data">${recipeText}</pre>`);
                 typewriterEffect('#bio-data');
-            },
-            error: function () {
-                $('#loading').hide();
-                $("#result").html('<p style="color:red;">An error occurred. Please try again.</p>');
-            },
+                $('#youtube').append(`<p> YOUTUBE SUGGESTIONS <p>`)
+                if (response.Youtube && response.Youtube.length > 0) {
+                        response.Youtube.forEach(video => {
+                            $("#youtube").append(`
+                                <div class="youtube-card">
+                                    <img src="${video.thumbnail}" alt="${video.title}">
+                                    <p>${video.title}</p>
+                                    <a href="${video.url}" target="_blank">Watch Now</a>
+                                </div>
+                            `);
+                        });
+                    }
+                },
+                error: function () {
+                    $('#loading').hide();
+                    $("#result").html('<p style="color:red;">An error occurred. Please try again.</p>');
+                }
+            });
         });
     });
-});
 
 function typewriterEffect(element) {
     var text = $(element).text();

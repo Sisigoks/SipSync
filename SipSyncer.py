@@ -2,7 +2,15 @@ import random
 from langchain_huggingface import HuggingFaceEndpoint
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from youtube import search_youtube
 import re
+
+def extract_tea_name(text):
+    # Regular expression to find "Tea Name" followed by its value
+    match = re.search(r"Tea Name:\s*(.*)", text)
+    if match:
+        return match.group(1).strip()  # Extract the tea name
+    return "Tea Name not found"
 
 def sipsyncer(taste, mood, feel):
     prompt_template = ChatPromptTemplate.from_messages(
@@ -74,6 +82,12 @@ def sipsyncer(taste, mood, feel):
     for key, value in categories.items():
         text = re.sub(fr"{key}:", f"\n{value}", text)
 
+    tea_name = extract_tea_name(text)
+    youtube_rec = search_youtube(f"{tea_name}")
+
     return {
         "Recipe": text,
+        "Youtube": youtube_rec,
     }
+
+print(sipsyncer('citrus','energetic','sleepy'))

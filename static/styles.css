@@ -362,4 +362,42 @@ input[type="text"]{
     gap: 30px;
 }
 
+.youtube-card {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 300px;
+}
+
+.youtube-card img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.youtube-card p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.youtube-card a {
+    display: inline-block;
+    padding: 2px 8px;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius = 20px;
+    border: 2px solid white;
+}
+
+#youtube{
+    position:absolute;
+    left: 125px;
+    top: 300px;
+    text-align: center;
+    color: white;
+}
+
 
